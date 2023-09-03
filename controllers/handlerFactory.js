@@ -59,5 +59,3 @@ exports.getOne = (Model, popOptins) =>
       data: doc,
     });
   });
-
-exports;
