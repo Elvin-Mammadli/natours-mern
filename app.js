@@ -15,7 +15,7 @@ const reviewRouter = require('./routes/reviewRoutes');
 const app = express();
 
 app.set('view engine', 'pug');
-app.set('views', path.join(__dirname, 'views'))
+app.set('views', path.join(__dirname, 'views'));
 
 // Global Middlewares
 // Serving static files
@@ -61,7 +61,6 @@ app.use(
   }),
 );
 
-
 // Test middleware
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
@@ -72,9 +71,21 @@ app.use((req, res, next) => {
 app.get('/', (req, res) => {
   res.status(200).render('base', {
     tour: 'The Forest Hiker',
-    user: 'Jonas'
+    user: 'Jonas',
   });
-})
+});
+
+app.get('/overview', (req, res) => {
+  res.status(200).render('overview', {
+    tour: 'All tours',
+  });
+});
+
+app.get('/tour', (req, res) => {
+  res.status(200).render('tour', {
+    tour: 'The Forest Hiker Tour',
+  });
+});
 
 app.use('/api/v1/tours', tourRouter);
 app.use('/api/v1/users', userRouter);
