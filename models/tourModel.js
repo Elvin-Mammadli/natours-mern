@@ -11,7 +11,7 @@ const tourSchema = new mongoose.Schema(
       trim: true,
       maxlength: [40, 'A Tour name must have less than 40 chars'],
       minlength: [10, 'A Tour name must have more than 10 chars'],
-      validate: [validator.isAlpha, 'Tour name must only contain characters'],
+      // validate: [validator.isAlpha, 'Tour name must only contain characters'],
     },
     slug: String,
     duration: {
@@ -74,7 +74,7 @@ const tourSchema = new mongoose.Schema(
       default: Date.now(),
       select: false,
     },
-    startDate: [Date],
+    startDates: [Date],
     secretTour: {
       type: Boolean,
       default: false,
