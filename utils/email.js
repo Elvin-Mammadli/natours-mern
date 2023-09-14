@@ -15,7 +15,7 @@ module.exports = class Email {
       // Snedgrid
       return 1;
     }
-    
+
     return nodemailer.createTransport({
       host: process.env.EMAIL_HOST,
       port: process.env.EMAIL_PORT,
@@ -50,5 +50,12 @@ module.exports = class Email {
 
   async sendWelcome() {
     await this.send('Welcome', 'Welcome to the Natours Family!')
+  }
+
+  async sendPasswordReset() {
+    await this.send(
+      'passwordReset',
+      'Your password reset token (valid for only 10 minutes)'
+    )
   }
 };
