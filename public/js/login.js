@@ -1,13 +1,11 @@
 import axios from 'axios';
 import { showAlert } from './alerts';
 
-const domain = process.env.NODE_ENV === 'production' ? '' : 'http://127.0.0.1:3000'
-
 export const login = async (email, password) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: `${domain}/api/v1/users/login`,
+      url: `/api/v1/users/login`,
       data: {
         email,
         password,
